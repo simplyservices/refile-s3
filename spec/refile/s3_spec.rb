@@ -11,7 +11,7 @@ RSpec.describe Refile::S3 do
     it_behaves_like :backend
   end
 
-  context "using verifying double" do
+  context "mocking and stubbing" do
     let(:backend) { Refile::S3.new(region: "us-west-2", bucket: "bucket") }
     let(:s3_resource) { double("s3_resource") }
     let(:s3_client) { double("s3_client") }
