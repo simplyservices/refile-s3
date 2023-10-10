@@ -97,6 +97,7 @@ module Refile
     verify_id def open(id)
       Kernel.open(object(id).presigned_url(:get))
     rescue Net::OpenTimeout
+      sleep 0.5
       Kernel.open(object(id).presigned_url(:get))
     end
 
