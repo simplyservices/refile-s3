@@ -95,10 +95,10 @@ module Refile
     # @param [String] id           The id of the file
     # @return [IO]                An IO object containing the file contents
     verify_id def open(id)
-      Kernel.open(object(id).presigned_url(:get))
+      URI.open(object(id).presigned_url(:get))
     rescue Net::OpenTimeout
       sleep 0.5
-      Kernel.open(object(id).presigned_url(:get))
+      URI.open(object(id).presigned_url(:get))
     end
 
     # Return the entire contents of the uploaded file as a String.

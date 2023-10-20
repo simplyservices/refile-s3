@@ -32,7 +32,7 @@ RSpec.describe Refile::S3 do
     end
 
     it "retries open when Net::OpenTimeout raised" do
-      expect(Kernel).to receive(:open).once
+      expect(URI).to receive(:open).once
       expect(s3_object).to receive(:presigned_url).ordered.and_raise(Net::OpenTimeout)
       expect(s3_object).to receive(:presigned_url).ordered
 
